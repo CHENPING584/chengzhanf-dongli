@@ -705,10 +705,11 @@ h1 {
     flex-direction: column;
     gap: 8px;
     margin: 0 auto;
-    max-width: 350px;
+    max-width: 400px;
     background: transparent;
-    padding: 10px;
+    padding: 20px 0;
     border-radius: 12px;
+    align-items: center;
 }
 
 .ladder-item {
@@ -724,9 +725,53 @@ h1 {
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* 金字塔形状：顶部窄，底部宽 */
+.ladder-item[data-score="181"] { /* 传承区 */
+    width: 60%;
+}
+
+.ladder-item[data-score="161"] { /* 创造区 */
+    width: 65%;
+}
+
+.ladder-item[data-score="141"] { /* 领航区 */
+    width: 70%;
+}
+
+.ladder-item[data-score="121"] { /* 裂变区 */
+    width: 75%;
+}
+
+.ladder-item[data-score="101"] { /* 精进区 */
+    width: 80%;
+}
+
+.ladder-item[data-score="81"] { /* 跃迁区 */
+    width: 85%;
+}
+
+.ladder-item[data-score="61"] { /* 破局区 */
+    width: 90%;
+}
+
+.ladder-item[data-score="41"] { /* 蓄力区 */
+    width: 95%;
+}
+
+.ladder-item[data-score="21"] { /* 探索区 */
+    width: 100%;
+}
+
+.ladder-item[data-score="0"] { /* 萌芽区 */
+    width: 100%;
 }
 
 .ladder-item::before {
@@ -784,47 +829,47 @@ h1 {
 }
 
 /* 为每个梯子项设置不同的颜色变量 */
-.ladder-item[data-score="361"] {
+.ladder-item[data-score="181"] {
     --item-color: #8b5cf6;
     --item-color-rgb: 139, 92, 246;
 }
 
-.ladder-item[data-score="321"] {
+.ladder-item[data-score="161"] {
     --item-color: #a855f7;
     --item-color-rgb: 168, 85, 247;
 }
 
-.ladder-item[data-score="281"] {
+.ladder-item[data-score="141"] {
     --item-color: #c084fc;
     --item-color-rgb: 192, 132, 252;
 }
 
-.ladder-item[data-score="241"] {
+.ladder-item[data-score="121"] {
     --item-color: #60a5fa;
     --item-color-rgb: 96, 165, 250;
 }
 
-.ladder-item[data-score="201"] {
+.ladder-item[data-score="101"] {
     --item-color: #3b82f6;
     --item-color-rgb: 59, 130, 246;
 }
 
-.ladder-item[data-score="161"] {
+.ladder-item[data-score="81"] {
     --item-color: #0ea5e9;
     --item-color-rgb: 14, 165, 233;
 }
 
-.ladder-item[data-score="121"] {
+.ladder-item[data-score="61"] {
     --item-color: #06b6d4;
     --item-color-rgb: 6, 182, 212;
 }
 
-.ladder-item[data-score="81"] {
+.ladder-item[data-score="41"] {
     --item-color: #14b8a6;
     --item-color-rgb: 20, 184, 166;
 }
 
-.ladder-item[data-score="41"] {
+.ladder-item[data-score="21"] {
     --item-color: #10b981;
     --item-color-rgb: 16, 185, 129;
 }

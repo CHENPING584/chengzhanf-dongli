@@ -5,16 +5,16 @@ class GrowthMotivationAssessment {
         this.answers = [];
         this.questions = []; // 题目数据，用户可在此添加
         this.stages = [
-            {"name": "萌芽区", "score_range": [0, 20], "focus": "唤醒目标意识", "action": "写下3个想改变的小事"},
-            {"name": "探索区", "score_range": [21, 40], "focus": "拓展认知边界", "action": "每周尝试1件新事物"},
-            {"name": "蓄力区", "score_range": [41, 60], "focus": "搭建行动框架", "action": "用四象限法规划每日任务"},
-            {"name": "破局区", "score_range": [61, 80], "focus": "突破舒适壁垒", "action": "主动承担1项有挑战的工作"},
-            {"name": "跃迁区", "score_range": [81, 100], "focus": "整合资源势能", "action": "链接3位不同领域的人脉"},
-            {"name": "精进区", "score_range": [101, 120], "focus": "打磨核心能力", "action": "每天刻意练习1小时专业技能"},
-            {"name": "裂变区", "score_range": [121, 140], "focus": "复制成功模式", "action": "把经验梳理成可分享的方法论"},
-            {"name": "领航区", "score_range": [141, 160], "focus": "引领生态协同", "action": "发起1个跨团队合作项目"},
+            {"name": "传承区", "score_range": [181, 200], "focus": "沉淀智慧体系", "action": "编写1本个人成长手册"},
             {"name": "创造区", "score_range": [161, 180], "focus": "开拓全新价值", "action": "提出1个行业内的创新提案"},
-            {"name": "传承区", "score_range": [181, 200], "focus": "沉淀智慧体系", "action": "编写1本个人成长手册"}
+            {"name": "领航区", "score_range": [141, 160], "focus": "引领生态协同", "action": "发起1个跨团队合作项目"},
+            {"name": "裂变区", "score_range": [121, 140], "focus": "复制成功模式", "action": "把经验梳理成可分享的方法论"},
+            {"name": "精进区", "score_range": [101, 120], "focus": "打磨核心能力", "action": "每天刻意练习1小时专业技能"},
+            {"name": "跃迁区", "score_range": [81, 100], "focus": "整合资源势能", "action": "链接3位不同领域的人脉"},
+            {"name": "破局区", "score_range": [61, 80], "focus": "突破舒适壁垒", "action": "主动承担1项有挑战的工作"},
+            {"name": "蓄力区", "score_range": [41, 60], "focus": "搭建行动框架", "action": "用四象限法规划每日任务"},
+            {"name": "探索区", "score_range": [21, 40], "focus": "拓展认知边界", "action": "每周尝试1件新事物"},
+            {"name": "萌芽区", "score_range": [0, 20], "focus": "唤醒目标意识", "action": "写下3个想改变的小事"}
         ];
         
         // 授权码配置
