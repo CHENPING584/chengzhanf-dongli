@@ -523,6 +523,14 @@ class GrowthMotivationAssessment {
         optionElement.classList.add('selected');
         // 保存答案
         this.answers[this.currentQuestionIndex] = optionIndex;
+        
+        // 自动跳转到下一题（如果不是最后一题）
+        if (this.currentQuestionIndex < this.questions.length - 1) {
+            // 添加短暂延迟，让用户看到选择效果
+            setTimeout(() => {
+                this.nextQuestion();
+            }, 500);
+        }
     }
 
     // 更新进度条
