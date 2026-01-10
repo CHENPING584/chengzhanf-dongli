@@ -42,15 +42,28 @@ class GrowthMotivationAssessment {
             }
         });
 
+        // 授权码输入框失焦事件，处理输入法收起
+        document.getElementById('auth-code').addEventListener('blur', () => {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.body.style.height = '100vh';
+            }, 100);
+        });
+
         // 开始测试按钮
         document.getElementById('start-btn').addEventListener('click', () => {
-            this.showScreen('test-screen');
-            this.loadQuestion();
+            // 确保页面在正确位置
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                this.showScreen('test-screen');
+                this.loadQuestion();
+            }, 50);
         });
 
         // 重新测试按钮
         document.getElementById('restart-btn').addEventListener('click', () => {
             this.resetTest();
+            window.scrollTo(0, 0);
             this.showScreen('start-screen');
         });
 
@@ -62,6 +75,13 @@ class GrowthMotivationAssessment {
         // 下一题按钮
         document.getElementById('next-btn').addEventListener('click', () => {
             this.nextQuestion();
+        });
+
+        // 监听窗口大小变化，处理输入法显示/隐藏
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
         });
     }
 
@@ -85,7 +105,18 @@ class GrowthMotivationAssessment {
             // 授权成功
             this.authorized = true;
             authError.textContent = '';
-            this.showScreen('start-screen');
+            
+            // 重置页面位置，解决输入法顶起问题
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.body.style.height = '100vh';
+                document.body.offsetHeight; // 触发重排
+                this.showScreen('start-screen');
+                // 再次重置，确保页面正确定位
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 100);
+            }, 100);
         } else {
             // 授权失败
             authError.textContent = '授权码无效，请重新输入';
