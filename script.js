@@ -17,6 +17,10 @@ class GrowthMotivationAssessment {
             {"name": "传承区", "score_range": [181, 200], "focus": "沉淀智慧体系", "action": "编写1本个人成长手册"}
         ];
         
+        // 授权码配置
+        this.authorized = false;
+        this.validAuthCodes = ["202401", "GROWTH2024", "MOTIVATION"]; // 可在此添加更多授权码
+        
         this.init();
     }
 
@@ -26,6 +30,18 @@ class GrowthMotivationAssessment {
     }
 
     bindEvents() {
+        // 授权码提交按钮
+        document.getElementById('submit-auth').addEventListener('click', () => {
+            this.validateAuthCode();
+        });
+
+        // 授权码输入框回车事件
+        document.getElementById('auth-code').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.validateAuthCode();
+            }
+        });
+
         // 开始测试按钮
         document.getElementById('start-btn').addEventListener('click', () => {
             this.showScreen('test-screen');
@@ -57,6 +73,24 @@ class GrowthMotivationAssessment {
         });
         // 显示目标屏幕
         document.getElementById(screenId).classList.add('active');
+    }
+
+    // 验证授权码
+    validateAuthCode() {
+        const authCodeInput = document.getElementById('auth-code');
+        const authError = document.getElementById('auth-error');
+        const inputCode = authCodeInput.value.trim().toUpperCase();
+        
+        if (this.validAuthCodes.includes(inputCode)) {
+            // 授权成功
+            this.authorized = true;
+            authError.textContent = '';
+            this.showScreen('start-screen');
+        } else {
+            // 授权失败
+            authError.textContent = '授权码无效，请重新输入';
+            authCodeInput.focus();
+        }
     }
 
     // 加载示例题目
