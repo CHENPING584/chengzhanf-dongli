@@ -19,7 +19,7 @@ class GrowthMotivationAssessment {
         
         // 授权码配置
         this.authorized = false;
-        this.validAuthCodes = ["202401", "GROWTH2024", "MOTIVATION"]; // 可在此添加更多授权码
+        this.validAuthCodes = ["XC520"]; // 唯一授权码
         
         this.init();
     }
