@@ -14,6 +14,8 @@ body {
     justify-content: center;
     overflow: hidden;
     position: relative;
+    padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+    box-sizing: border-box;
 }
 
 body::before {
@@ -48,6 +50,9 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     text-align: center;
+    margin: auto;
+    position: relative;
+    z-index: 1;
 }
 
 /* 屏幕切换 */
