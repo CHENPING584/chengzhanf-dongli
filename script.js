@@ -656,6 +656,9 @@ class GrowthMotivationAssessment {
         document.getElementById('state-name').textContent = `${stage.name}`;
         document.getElementById('state-tags-text').textContent = `${stage.focus} · ${stage.action}`;
 
+        // 更新环形进度条
+        this.updateEnergyRing(score);
+
         // 更新状态梯子的激活状态
         document.querySelectorAll('.ladder-item').forEach(item => {
             item.classList.remove('active');
@@ -670,6 +673,21 @@ class GrowthMotivationAssessment {
 
         // 显示结果屏幕
         this.showScreen('result-screen');
+    }
+
+    // 更新能量环形进度条
+    updateEnergyRing(score) {
+        // 最大分数为200（40题，每题5分）
+        const maxScore = 200;
+        const percentage = (score / maxScore) * 100;
+        
+        // 计算环形进度条的stroke-dashoffset值
+        const circumference = 2 * Math.PI * 65; // 圆周长 = 2πr，r=65
+        const offset = circumference - (percentage / 100) * circumference;
+        
+        // 更新环形进度条
+        const ringProgress = document.getElementById('ring-progress');
+        ringProgress.style.strokeDashoffset = offset;
     }
 
     // 重置测试

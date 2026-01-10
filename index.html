@@ -69,6 +69,10 @@
         <div class="container">
             <div class="result-header">
                 <div class="energy-circle">
+                    <svg class="energy-ring" width="150" height="150" viewBox="0 0 150 150">
+                        <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.2)" stroke-width="6" />
+                        <circle class="ring-progress" id="ring-progress" cx="75" cy="75" r="65" fill="transparent" stroke="#667eea" stroke-width="6" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
+                    </svg>
                     <div class="energy-value" id="energy-value">261</div>
                     <div class="energy-label">ENERGY HZ</div>
                 </div>
@@ -91,7 +95,7 @@
                     <div class="ladder-item" data-score="0">萌芽区 (0-40)</div>
                 </div>
             </div>
-            <button id="restart-btn" class="primary-btn">重新测试</button>
+            <button id="restart-btn">重新测试</button>
         </div>
     </div>
 
