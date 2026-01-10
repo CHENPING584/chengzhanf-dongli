@@ -529,7 +529,7 @@ class GrowthMotivationAssessment {
             // 添加短暂延迟，让用户看到选择效果
             setTimeout(() => {
                 this.nextQuestion();
-            }, 500);
+            }, 200);
         }
     }
 
