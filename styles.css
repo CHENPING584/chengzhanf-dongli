@@ -108,11 +108,18 @@ body::before {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
     width: 100%;
-    height: auto;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: inherit;
+    z-index: 10;
 }
 
 .screen.active {
     display: block;
+    position: relative;
+    z-index: 20;
 }
 
 @keyframes fadeIn {
