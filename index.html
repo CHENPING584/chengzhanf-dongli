@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长动力简评</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 开始界面 -->
+    <div id="start-screen" class="screen active">
+        <div class="container">
+            <h1>成长动力简评</h1>
+            <p class="subtitle">GROWTH MOTIVATOON TEST</p>
+            <div class="circle-animation">
+    <div class="light-stream"></div>
+</div>
+            <p class="quote">成长不是一场被动的等待</p>
+            <p class="quote">而是一场主动的进化</p>
+            <p class="description">基于成长动力模型 · 40道深度评估 · 精准定位成长阶段</p>
+            <button id="start-btn" class="primary-btn">开始评估</button>
+        </div>
+    </div>
+
+    <!-- 测试问题界面 -->
+    <div id="test-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <h2>Inner Frequency Test</h2>
+                <div class="progress">
+                    <span id="question-count">01 / 40</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="question-section">
+                <h3 id="question-text">问题加载中...</h3>
+                <div id="options-container" class="options-container"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-btn" class="secondary-btn" disabled>上一题</button>
+                <button id="next-btn" class="primary-btn">下一题</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 结果界面 -->
+    <div id="result-screen" class="screen">
+        <div class="container">
+            <div class="result-header">
+                <div class="energy-circle">
+                    <div class="energy-value" id="energy-value">261</div>
+                    <div class="energy-label">ENERGY HZ</div>
+                </div>
+            </div>
+            <div class="result-content">
+                <h2 id="state-name">平衡态 (Balance)</h2>
+                <div class="state-tags">
+                    <span id="state-tags-text">信任 · 灵活</span>
+                </div>
+                <div class="state-ladder">
+                    <div class="ladder-item" data-score="361">传承区 (361-400)</div>
+                    <div class="ladder-item" data-score="321">创造区 (321-360)</div>
+                    <div class="ladder-item" data-score="281">领航区 (281-320)</div>
+                    <div class="ladder-item" data-score="241">裂变区 (241-280)</div>
+                    <div class="ladder-item" data-score="201">精进区 (201-240)</div>
+                    <div class="ladder-item" data-score="161">跃迁区 (161-200)</div>
+                    <div class="ladder-item" data-score="121">破局区 (121-160)</div>
+                    <div class="ladder-item" data-score="81">蓄力区 (81-120)</div>
+                    <div class="ladder-item" data-score="41">探索区 (41-80)</div>
+                    <div class="ladder-item" data-score="0">萌芽区 (0-40)</div>
+                </div>
+            </div>
+            <button id="restart-btn" class="primary-btn">重新测试</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
