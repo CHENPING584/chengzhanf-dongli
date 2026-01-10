@@ -64,22 +64,20 @@ body::before {
 .container {
     width: 100%;
     max-width: 500px;
-    padding: 30px;
+    padding: 35px 25px;
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(15px);
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 100px rgba(102, 126, 234, 0.1);
     text-align: center;
-    margin: auto;
+    margin: 20px auto;
     position: relative;
     z-index: 1;
     overflow: visible;
-    max-height: calc(100vh - env(safe-area-inset-top, 30px) - env(safe-area-inset-bottom, 30px) - 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     box-sizing: border-box;
+    display: block;
+    height: auto;
 }
 
 .container::before {
@@ -440,7 +438,9 @@ h1 {
     flex-direction: column;
     gap: 12px;
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .option {
@@ -475,11 +475,15 @@ h1 {
 .navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 25px;
+    margin-top: 30px;
     gap: 15px;
-    padding: 0;
+    padding: 15px 0;
     width: 100%;
     flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
 }
 
 /* 授权码界面样式 */
