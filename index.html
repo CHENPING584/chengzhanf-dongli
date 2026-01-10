@@ -70,8 +70,17 @@
             <div class="result-header">
                 <div class="energy-circle">
                     <svg class="energy-ring" width="150" height="150" viewBox="0 0 150 150">
-                        <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.2)" stroke-width="6" />
-                        <circle class="ring-progress" id="ring-progress" cx="75" cy="75" r="65" fill="transparent" stroke="#667eea" stroke-width="6" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
+                        <!-- 背景圆环 -->
+                        <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.15)" stroke-width="8" />
+                        <!-- 渐变定义 -->
+                        <defs>
+                            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#667eea" />
+                                <stop offset="100%" stop-color="#764ba2" />
+                            </linearGradient>
+                        </defs>
+                        <!-- 进度圆环 -->
+                        <circle class="ring-progress" id="ring-progress" cx="75" cy="75" r="65" fill="transparent" stroke="url(#ringGradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
                     </svg>
                     <div class="energy-value" id="energy-value">261</div>
                     <div class="energy-label">ENERGY HZ</div>
@@ -83,16 +92,16 @@
                     <span id="state-tags-text">信任 · 灵活</span>
                 </div>
                 <div class="state-ladder">
-                    <div class="ladder-item" data-score="361">传承区 (361-400)</div>
-                    <div class="ladder-item" data-score="321">创造区 (321-360)</div>
-                    <div class="ladder-item" data-score="281">领航区 (281-320)</div>
-                    <div class="ladder-item" data-score="241">裂变区 (241-280)</div>
-                    <div class="ladder-item" data-score="201">精进区 (201-240)</div>
-                    <div class="ladder-item" data-score="161">跃迁区 (161-200)</div>
-                    <div class="ladder-item" data-score="121">破局区 (121-160)</div>
-                    <div class="ladder-item" data-score="81">蓄力区 (81-120)</div>
-                    <div class="ladder-item" data-score="41">探索区 (41-80)</div>
-                    <div class="ladder-item" data-score="0">萌芽区 (0-40)</div>
+                    <div class="ladder-item" data-score="361" data-color="#8b5cf6"><span>传承区 (361-400)</span></div>
+                    <div class="ladder-item" data-score="321" data-color="#a855f7"><span>创造区 (321-360)</span></div>
+                    <div class="ladder-item" data-score="281" data-color="#c084fc"><span>领航区 (281-320)</span></div>
+                    <div class="ladder-item" data-score="241" data-color="#60a5fa"><span>裂变区 (241-280)</span></div>
+                    <div class="ladder-item" data-score="201" data-color="#3b82f6"><span>精进区 (201-240)</span></div>
+                    <div class="ladder-item" data-score="161" data-color="#0ea5e9"><span>跃迁区 (161-200)</span></div>
+                    <div class="ladder-item" data-score="121" data-color="#06b6d4"><span>破局区 (121-160)</span></div>
+                    <div class="ladder-item" data-score="81" data-color="#14b8a6"><span>蓄力区 (81-120)</span></div>
+                    <div class="ladder-item" data-score="41" data-color="#10b981"><span>探索区 (41-80)</span></div>
+                    <div class="ladder-item" data-score="0" data-color="#22c55e"><span>萌芽区 (0-40)</span></div>
                 </div>
             </div>
             <button id="restart-btn">重新测试</button>

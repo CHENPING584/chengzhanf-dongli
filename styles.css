@@ -43,16 +43,38 @@ body::before {
 .container {
     width: 100%;
     max-width: 500px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 100px rgba(102, 126, 234, 0.1);
     text-align: center;
     margin: auto;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+    animation: containerPulse 15s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes containerPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+    }
 }
 
 /* 屏幕切换 */
@@ -553,25 +575,28 @@ h1 {
     flex-direction: column;
     gap: 8px;
     margin: 0 auto;
-    max-width: 320px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 20px;
+    max-width: 350px;
+    background: transparent;
+    padding: 10px;
     border-radius: 12px;
-    backdrop-filter: blur(10px);
 }
 
 .ladder-item {
-    background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border: 1px solid rgba(102, 126, 234, 0.2);
-    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 25px;
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     font-size: 0.95rem;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
 }
 
 .ladder-item::before {
@@ -580,28 +605,103 @@ h1 {
     left: 0;
     top: 0;
     height: 100%;
-    width: 4px;
-    background: rgba(102, 126, 234, 0.5);
+    width: 100%;
+    background: linear-gradient(90deg, var(--item-color, rgba(102, 126, 234, 0.1)) 0%, transparent 100%);
+    opacity: 0.4;
     transition: all 0.3s ease;
+    z-index: 0;
+}
+
+.ladder-item span {
+    position: relative;
+    z-index: 1;
 }
 
 .ladder-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transform: translateX(2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .ladder-item.active {
-    background: linear-gradient(90deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
-    border-color: #667eea;
+    background: linear-gradient(90deg, var(--item-color, rgba(102, 126, 234, 0.6)) 0%, rgba(var(--item-color-rgb, 102, 126, 234), 0.3) 100%);
+    border-color: var(--item-color, #667eea);
     color: white;
-    box-shadow: 0 0 25px rgba(102, 126, 234, 0.5), 0 4px 15px rgba(0, 0, 0, 0.3);
-    transform: translateX(5px);
+    box-shadow: 0 0 30px rgba(var(--item-color-rgb, 102, 126, 234), 0.5), 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: translateX(0);
+}
+
+.ladder-item.active::after {
+    content: 'YOUR STATE';
+    position: absolute;
+    right: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.ladder-item.active span {
+    color: white;
+    font-weight: 600;
 }
 
 .ladder-item.active::before {
-    background: #667eea;
-    width: 8px;
-    box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+    opacity: 0.8;
+    background: linear-gradient(90deg, var(--item-color, rgba(102, 126, 234, 0.8)) 0%, transparent 100%);
+}
+
+/* 为每个梯子项设置不同的颜色变量 */
+.ladder-item[data-score="361"] {
+    --item-color: #8b5cf6;
+    --item-color-rgb: 139, 92, 246;
+}
+
+.ladder-item[data-score="321"] {
+    --item-color: #a855f7;
+    --item-color-rgb: 168, 85, 247;
+}
+
+.ladder-item[data-score="281"] {
+    --item-color: #c084fc;
+    --item-color-rgb: 192, 132, 252;
+}
+
+.ladder-item[data-score="241"] {
+    --item-color: #60a5fa;
+    --item-color-rgb: 96, 165, 250;
+}
+
+.ladder-item[data-score="201"] {
+    --item-color: #3b82f6;
+    --item-color-rgb: 59, 130, 246;
+}
+
+.ladder-item[data-score="161"] {
+    --item-color: #0ea5e9;
+    --item-color-rgb: 14, 165, 233;
+}
+
+.ladder-item[data-score="121"] {
+    --item-color: #06b6d4;
+    --item-color-rgb: 6, 182, 212;
+}
+
+.ladder-item[data-score="81"] {
+    --item-color: #14b8a6;
+    --item-color-rgb: 20, 184, 166;
+}
+
+.ladder-item[data-score="41"] {
+    --item-color: #10b981;
+    --item-color-rgb: 16, 185, 129;
+}
+
+.ladder-item[data-score="0"] {
+    --item-color: #22c55e;
+    --item-color-rgb: 34, 197, 94;
 }
 
 /* 重新测试按钮样式 */
