@@ -4,21 +4,36 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #ffffff;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow: auto;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     padding: env(safe-area-inset-top, 30px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 30px) env(safe-area-inset-left, 20px);
-    box-sizing: border-box;
     margin: 0;
     width: 100%;
     -webkit-overflow-scrolling: touch;
+}
+
+/* 确保在电脑端内容居中显示 */
+@media (min-width: 768px) {
+    body {
+        justify-content: center;
+        padding: 40px;
+    }
 }
 
 body::before {
@@ -93,15 +108,11 @@ body::before {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: auto;
 }
 
 .screen.active {
-    display: flex;
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -780,11 +791,56 @@ h1 {
     box-shadow: 0 0 20px rgba(102, 126, 234, 0.5), 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* 响应式设计 */
-@media (max-width: 500px) {
+/* 大屏幕响应式设计 */
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px;
+        padding: 40px;
+        margin: 40px auto;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    #question-text {
+        font-size: 1.5rem;
+        line-height: 1.8;
+    }
+
+    .state-ladder {
+        max-width: 500px;
+    }
+
+    .ladder-item {
+        padding: 20px 30px;
+        font-size: 1rem;
+    }
+
+    .energy-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .energy-value {
+        font-size: 4rem;
+    }
+
+    #state-name {
+        font-size: 2.5rem;
+    }
+}
+
+/* 小屏幕响应式设计 */
+@media (max-width: 767px) {
     .container {
         margin: 20px;
         padding: 30px 20px;
+        max-width: calc(100% - 40px);
     }
 
     h1 {
@@ -811,17 +867,12 @@ h1 {
         height: 150px;
     }
 
-    .energy-circle::before {
-        width: 130px;
-        height: 130px;
-    }
-
     .energy-value {
         font-size: 2.5rem;
     }
 
     #state-name {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .header {
@@ -840,5 +891,15 @@ h1 {
 
     .secondary-btn, .primary-btn {
         width: 100%;
+    }
+
+    #question-text {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    .ladder-item {
+        padding: 16px 20px;
+        font-size: 0.9rem;
     }
 }
