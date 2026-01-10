@@ -28,6 +28,22 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+/* 确保每个screen都是独立的容器 */
+.screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background: inherit;
+    z-index: 10;
+    padding: 20px 0;
+}
+
+.screen.active {
+    display: block;
+    z-index: 20;
+}
+
 /* 确保在电脑端内容居中显示 */
 @media (min-width: 768px) {
     body {
@@ -106,17 +122,14 @@ body::before {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
+    position: relative;
     background: inherit;
     z-index: 10;
 }
 
 .screen.active {
     display: block;
-    position: relative;
     z-index: 20;
 }
 
