@@ -12,22 +12,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
-    padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+    padding: env(safe-area-inset-top, 30px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 30px) env(safe-area-inset-left, 20px);
     box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 body::before {
     content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
     animation: pulse 8s ease-in-out infinite;
+    z-index: -1;
 }
+
+/* 移除重复定义 */
 
 @keyframes pulse {
     0%, 100% {
@@ -54,6 +60,11 @@ body::before {
     position: relative;
     z-index: 1;
     overflow: visible;
+    max-height: calc(100vh - env(safe-area-inset-top, 30px) - env(safe-area-inset-bottom, 30px) - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
 }
 
 .container::before {
@@ -81,10 +92,16 @@ body::before {
 .screen {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .screen.active {
-    display: block;
+    display: flex;
 }
 
 @keyframes fadeIn {
