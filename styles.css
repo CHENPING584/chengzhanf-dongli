@@ -415,13 +415,13 @@ h1 {
     margin-bottom: 30px;
     position: relative;
     z-index: 2;
-    min-height: 100px;
+    min-height: 120px;
 }
 
 #question-text {
     font-size: 1.3rem;
     color: white;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     line-height: 1.6;
     text-align: left;
     font-weight: 600;
@@ -438,18 +438,26 @@ h1 {
 .options-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     text-align: left;
+    margin-bottom: 25px;
 }
 
 .option {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 20px;
+    padding: 18px;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .option:hover {
@@ -467,7 +475,11 @@ h1 {
 .navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 25px;
+    gap: 15px;
+    padding: 0;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 /* 授权码界面样式 */
