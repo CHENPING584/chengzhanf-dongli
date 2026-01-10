@@ -373,8 +373,75 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: left;
+    flex: 0 0 auto;
+}
+
+/* 为测试屏幕添加特殊布局 */
+#test-screen .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 700px;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 25px;
+    margin: 10px auto;
+}
+
+/* 确保test-screen中的各部分正确排列 */
+#test-screen .header {
+    margin-bottom: 0;
+}
+
+#test-screen .question-section {
+    margin-bottom: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 400px;
+}
+
+#test-screen .options-container {
+    margin-bottom: 0;
+    gap: 10px;
+    flex: 1;
+}
+
+#test-screen .navigation {
+    margin-top: 0;
+    flex: 0 0 auto;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 确保选项和导航按钮在移动设备上也能正确显示 */
+@media (max-width: 767px) {
+    #test-screen .container {
+        min-height: 600px;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    #test-screen .question-section {
+        min-height: 350px;
+    }
+    
+    #test-screen .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #test-screen .navigation button {
+        width: 100%;
+    }
 }
 
 .header h2 {
