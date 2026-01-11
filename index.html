@@ -3,113 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>成长动力简评</title>
+    <title>风水冲煞评估</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 授权码界面 -->
-    <div id="auth-screen" class="screen active">
+    <!-- 主选择界面 -->
+    <div id="main-screen" class="screen active">
         <div class="container">
-            <h1>成长动机评估</h1>
-            <p class="subtitle">GROWTH MOTIVATION ASSESSMENT</p>
+            <h1>风水冲煞评估</h1>
+            <p class="subtitle">FENG SHUI EVALUATION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <p class="quote">风水不是迷信，而是环境科学</p>
+            <p class="quote">和谐的环境才能带来好运</p>
+            <div class="section-selection">
+                <h3>选择评估板块</h3>
+                <div class="section-buttons">
+                    <button class="section-btn" data-section="home">
+                        <h4>家居板块</h4>
+                        <p>住宅风水评估</p>
+                    </button>
+                    <button class="section-btn" data-section="money">
+                        <h4>财运板块</h4>
+                        <p>财运风水评估</p>
+                    </button>
+                    <button class="section-btn" data-section="work">
+                        <h4>工作板块</h4>
+                        <p>办公风水评估</p>
+                    </button>
+                    <button class="section-btn" data-section="energy">
+                        <h4>能量板块</h4>
+                        <p>能量磁场评估</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 家居板块 - 授权码界面 -->
+    <div id="auth-home" class="screen">
+        <div class="container">
+            <h1>家居板块评估</h1>
+            <p class="subtitle">HOME SECTION</p>
             <div class="circle-animation">
                 <div class="light-stream"></div>
             </div>
             <div class="auth-section">
                 <h3>请输入授权码</h3>
                 <div class="input-group">
-                    <input type="text" id="auth-code" placeholder="输入授权码" class="auth-input">
-                    <button id="submit-auth" class="primary-btn">进入评估</button>
+                    <input type="text" id="auth-code-home" placeholder="输入授权码" class="auth-input">
+                    <button id="submit-auth-home" class="primary-btn">进入评估</button>
                 </div>
-                <p id="auth-error" class="auth-error"></p>
+                <p id="auth-error-home" class="auth-error"></p>
             </div>
         </div>
     </div>
 
-    <!-- 开始界面 -->
-    <div id="start-screen" class="screen">
+    <!-- 家居板块 - 开始界面 -->
+    <div id="start-home" class="screen">
         <div class="container">
-            <h1>成长动力简评</h1>
-            <p class="subtitle">GROWTH
-MOTIVATION TEST</p>
+            <h1>家居板块评估</h1>
+            <p class="subtitle">HOME SECTION</p>
             <div class="circle-animation">
-    <div class="light-stream"></div>
-</div>
-            <p class="quote">成长不是一场被动的等待</p>
-            <p class="quote">而是一场主动的进化</p>
-            <p class="description">基于成长动力模型 · 40道深度评估 · 精准定位成长阶段</p>
-            <button id="start-btn" class="primary-btn">开始评估</button>
+                <div class="light-stream"></div>
+            </div>
+            <p class="description">基于传统风水理论 · 科学评估方法 · 精准定位冲煞问题 · 提供化解建议</p>
+            <button id="start-home-btn" class="primary-btn">开始评估</button>
         </div>
     </div>
 
-    <!-- 测试问题界面 -->
-    <div id="test-screen" class="screen">
+    <!-- 家居板块 - 测试问题界面 -->
+    <div id="test-home" class="screen">
         <div class="container">
             <div class="header">
-                <h2>Inner Frequency Test</h2>
+                <h2>家居板块评估</h2>
                 <div class="progress">
-                    <span id="question-count">01 / 40</span>
+                    <span id="question-count-home">01 / 30</span>
                     <div class="progress-bar">
-                        <div id="progress-fill" class="progress-fill"></div>
+                        <div id="progress-fill-home" class="progress-fill"></div>
                     </div>
                 </div>
             </div>
             <div class="question-section">
-                <h3 id="question-text">问题加载中...</h3>
-                <div id="options-container" class="options-container"></div>
+                <h3 id="question-text-home">问题加载中...</h3>
+                <div id="options-container-home" class="options-container"></div>
             </div>
             <div class="navigation">
-                <button id="prev-btn" class="secondary-btn" disabled>上一题</button>
-                <button id="next-btn" class="primary-btn">下一题</button>
+                <button id="prev-home-btn" class="secondary-btn" disabled>上一题</button>
+                <button id="next-home-btn" class="primary-btn">下一题</button>
             </div>
         </div>
     </div>
 
-    <!-- 结果界面 -->
-    <div id="result-screen" class="screen">
+    <!-- 家居板块 - 结果界面 -->
+    <div id="result-home" class="screen">
         <div class="container">
+            <h1>家居板块评估结果</h1>
             <div class="result-header">
                 <div class="energy-circle">
                     <svg class="energy-ring" width="150" height="150" viewBox="0 0 150 150">
-                        <!-- 背景圆环 -->
                         <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.15)" stroke-width="8" />
-                        <!-- 渐变定义 -->
                         <defs>
-                            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <linearGradient id="ringGradient-home" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#667eea" />
                                 <stop offset="100%" stop-color="#764ba2" />
                             </linearGradient>
                         </defs>
-                        <!-- 进度圆环 -->
-                        <circle class="ring-progress" id="ring-progress" cx="75" cy="75" r="65" fill="transparent" stroke="url(#ringGradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
+                        <circle class="ring-progress" id="ring-progress-home" cx="75" cy="75" r="65" fill="transparent" stroke="url(#ringGradient-home)" stroke-width="8" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
                     </svg>
-                    <div class="energy-value" id="energy-value">261</div>
-                    <div class="energy-label">ENERGY HZ</div>
+                    <div class="energy-value" id="energy-value-home">60</div>
+                    <div class="energy-label">FENG SHUI SCORE</div>
+                </div>
+                <div class="score-status">
+                    <h2 id="state-name-home">有待改善</h2>
                 </div>
             </div>
+            
             <div class="result-content">
-                <h2 id="state-name">平衡态 (Balance)</h2>
-                <div class="state-tags">
-                    <span id="state-tags-text">信任 · 灵活</span>
-                </div>
-                <div class="state-ladder">
-                    <div class="ladder-item" data-score="181" data-color="#8b5cf6"><span>传承区 (181-200)</span></div>
-                    <div class="ladder-item" data-score="161" data-color="#a855f7"><span>创造区 (161-180)</span></div>
-                    <div class="ladder-item" data-score="141" data-color="#c084fc"><span>领航区 (141-160)</span></div>
-                    <div class="ladder-item" data-score="121" data-color="#60a5fa"><span>裂变区 (121-140)</span></div>
-                    <div class="ladder-item" data-score="101" data-color="#3b82f6"><span>精进区 (101-120)</span></div>
-                    <div class="ladder-item" data-score="81" data-color="#0ea5e9"><span>跃迁区 (81-100)</span></div>
-                    <div class="ladder-item" data-score="61" data-color="#06b6d4"><span>破局区 (61-80)</span></div>
-                    <div class="ladder-item" data-score="41" data-color="#14b8a6"><span>蓄力区 (41-60)</span></div>
-                    <div class="ladder-item" data-score="21" data-color="#10b981"><span>探索区 (21-40)</span></div>
-                    <div class="ladder-item" data-score="0" data-color="#22c55e"><span>萌芽区 (0-20)</span></div>
+                <!-- 发现的问题 -->
+                <div class="problems-section">
+                    <h3>发现的冲煞问题</h3>
+                    <div class="problems-list" id="problems-list-home">
+                        <!-- 问题将通过JS动态生成 -->
+                    </div>
                 </div>
             </div>
-            <button id="restart-btn">重新测试</button>
+            
+            <div class="result-actions">
+                <button id="restart-home-btn" class="secondary-btn">重新评估</button>
+                <button id="save-home-report-btn" class="primary-btn">保存报告</button>
+                <button id="back-home-btn" class="secondary-btn">返回主菜单</button>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- 财运板块 - 授权码界面 -->
+    <div id="auth-money" class="screen">
+        <div class="container">
+            <h1>财运板块评估</h1>
+            <p class="subtitle">MONEY SECTION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <div class="auth-section">
+                <h3>请输入授权码</h3>
+                <div class="input-group">
+                    <input type="text" id="auth-code-money" placeholder="输入授权码" class="auth-input">
+                    <button id="submit-auth-money" class="primary-btn">进入评估</button>
+                </div>
+                <p id="auth-error-money" class="auth-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 财运板块 - 开始界面 -->
+    <div id="start-money" class="screen">
+        <div class="container">
+            <h1>财运板块评估</h1>
+            <p class="subtitle">MONEY SECTION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <p class="description">基于传统风水理论 · 科学评估方法 · 精准定位冲煞问题 · 提供化解建议</p>
+            <button id="start-money-btn" class="primary-btn">开始评估</button>
+        </div>
+    </div>
+
+    <!-- 财运板块 - 测试问题界面 -->
+    <div id="test-money" class="screen">
+        <div class="container">
+            <div class="header">
+                <h2>财运板块评估</h2>
+                <div class="progress">
+                    <span id="question-count-money">01 / 30</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill-money" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="question-section">
+                <h3 id="question-text-money">问题加载中...</h3>
+                <div id="options-container-money" class="options-container"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-money-btn" class="secondary-btn" disabled>上一题</button>
+                <button id="next-money-btn" class="primary-btn">下一题</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 财运板块 - 结果界面 -->
+    <div id="result-money" class="screen">
+        <div class="container">
+            <h1>财运板块评估结果</h1>
+            <div class="result-header">
+                <div class="energy-circle">
+                    <svg class="energy-ring" width="150" height="150" viewBox="0 0 150 150">
+                        <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.15)" stroke-width="8" />
+                        <defs>
+                            <linearGradient id="ringGradient-money" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#667eea" />
+                                <stop offset="100%" stop-color="#764ba2" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="ring-progress" id="ring-progress-money" cx="75" cy="75" r="65" fill="transparent" stroke="url(#ringGradient-money)" stroke-width="8" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
+                    </svg>
+                    <div class="energy-value" id="energy-value-money">60</div>
+                    <div class="energy-label">FENG SHUI SCORE</div>
+                </div>
+                <div class="score-status">
+                    <h2 id="state-name-money">有待改善</h2>
+                </div>
+            </div>
+            
+            <div class="result-content">
+                <!-- 发现的问题 -->
+                <div class="problems-section">
+                    <h3>发现的冲煞问题</h3>
+                    <div class="problems-list" id="problems-list-money">
+                        <!-- 问题将通过JS动态生成 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-actions">
+                <button id="restart-money-btn" class="secondary-btn">重新评估</button>
+                <button id="save-money-report-btn" class="primary-btn">保存报告</button>
+                <button id="back-money-btn" class="secondary-btn">返回主菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 工作板块 - 授权码界面 -->
+    <div id="auth-work" class="screen">
+        <div class="container">
+            <h1>工作板块评估</h1>
+            <p class="subtitle">WORK SECTION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <div class="auth-section">
+                <h3>请输入授权码</h3>
+                <div class="input-group">
+                    <input type="text" id="auth-code-work" placeholder="输入授权码" class="auth-input">
+                    <button id="submit-auth-work" class="primary-btn">进入评估</button>
+                </div>
+                <p id="auth-error-work" class="auth-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 工作板块 - 开始界面 -->
+    <div id="start-work" class="screen">
+        <div class="container">
+            <h1>工作板块评估</h1>
+            <p class="subtitle">WORK SECTION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <p class="description">基于传统风水理论 · 科学评估方法 · 精准定位冲煞问题 · 提供化解建议</p>
+            <button id="start-work-btn" class="primary-btn">开始评估</button>
+        </div>
+    </div>
+
+    <!-- 工作板块 - 测试问题界面 -->
+    <div id="test-work" class="screen">
+        <div class="container">
+            <div class="header">
+                <h2>工作板块评估</h2>
+                <div class="progress">
+                    <span id="question-count-work">01 / 30</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill-work" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="question-section">
+                <h3 id="question-text-work">问题加载中...</h3>
+                <div id="options-container-work" class="options-container"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-work-btn" class="secondary-btn" disabled>上一题</button>
+                <button id="next-work-btn" class="primary-btn">下一题</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 工作板块 - 结果界面 -->
+    <div id="result-work" class="screen">
+        <div class="container">
+            <h1>工作板块评估结果</h1>
+            <div class="result-header">
+                <div class="energy-circle">
+                    <svg class="energy-ring" width="150" height="150" viewBox="0 0 150 150">
+                        <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.15)" stroke-width="8" />
+                        <defs>
+                            <linearGradient id="ringGradient-work" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#667eea" />
+                                <stop offset="100%" stop-color="#764ba2" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="ring-progress" id="ring-progress-work" cx="75" cy="75" r="65" fill="transparent" stroke="url(#ringGradient-work)" stroke-width="8" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
+                    </svg>
+                    <div class="energy-value" id="energy-value-work">60</div>
+                    <div class="energy-label">FENG SHUI SCORE</div>
+                </div>
+                <div class="score-status">
+                    <h2 id="state-name-work">有待改善</h2>
+                </div>
+            </div>
+            
+            <div class="result-content">
+                <!-- 发现的问题 -->
+                <div class="problems-section">
+                    <h3>发现的冲煞问题</h3>
+                    <div class="problems-list" id="problems-list-work">
+                        <!-- 问题将通过JS动态生成 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-actions">
+                <button id="restart-work-btn" class="secondary-btn">重新评估</button>
+                <button id="save-work-report-btn" class="primary-btn">保存报告</button>
+                <button id="back-work-btn" class="secondary-btn">返回主菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 能量板块 - 授权码界面 -->
+    <div id="auth-energy" class="screen">
+        <div class="container">
+            <h1>能量板块评估</h1>
+            <p class="subtitle">ENERGY SECTION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <div class="auth-section">
+                <h3>请输入授权码</h3>
+                <div class="input-group">
+                    <input type="text" id="auth-code-energy" placeholder="输入授权码" class="auth-input">
+                    <button id="submit-auth-energy" class="primary-btn">进入评估</button>
+                </div>
+                <p id="auth-error-energy" class="auth-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 能量板块 - 开始界面 -->
+    <div id="start-energy" class="screen">
+        <div class="container">
+            <h1>能量板块评估</h1>
+            <p class="subtitle">ENERGY SECTION</p>
+            <div class="circle-animation">
+                <div class="light-stream"></div>
+            </div>
+            <p class="description">基于传统风水理论 · 科学评估方法 · 精准定位冲煞问题 · 提供化解建议</p>
+            <button id="start-energy-btn" class="primary-btn">开始评估</button>
+        </div>
+    </div>
+
+    <!-- 能量板块 - 测试问题界面 -->
+    <div id="test-energy" class="screen">
+        <div class="container">
+            <div class="header">
+                <h2>能量板块评估</h2>
+                <div class="progress">
+                    <span id="question-count-energy">01 / 30</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill-energy" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="question-section">
+                <h3 id="question-text-energy">问题加载中...</h3>
+                <div id="options-container-energy" class="options-container"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-energy-btn" class="secondary-btn" disabled>上一题</button>
+                <button id="next-energy-btn" class="primary-btn">下一题</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 能量板块 - 结果界面 -->
+    <div id="result-energy" class="screen">
+        <div class="container">
+            <h1>能量板块评估结果</h1>
+            <div class="result-header">
+                <div class="energy-circle">
+                    <svg class="energy-ring" width="150" height="150" viewBox="0 0 150 150">
+                        <circle class="ring-bg" cx="75" cy="75" r="65" fill="transparent" stroke="rgba(102, 126, 234, 0.15)" stroke-width="8" />
+                        <defs>
+                            <linearGradient id="ringGradient-energy" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#667eea" />
+                                <stop offset="100%" stop-color="#764ba2" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="ring-progress" id="ring-progress-energy" cx="75" cy="75" r="65" fill="transparent" stroke="url(#ringGradient-energy)" stroke-width="8" stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="0" transform="rotate(-90 75 75)" />
+                    </svg>
+                    <div class="energy-value" id="energy-value-energy">60</div>
+                    <div class="energy-label">FENG SHUI SCORE</div>
+                </div>
+                <div class="score-status">
+                    <h2 id="state-name-energy">有待改善</h2>
+                </div>
+            </div>
+            
+            <div class="result-content">
+                <!-- 发现的问题 -->
+                <div class="problems-section">
+                    <h3>发现的冲煞问题</h3>
+                    <div class="problems-list" id="problems-list-energy">
+                        <!-- 问题将通过JS动态生成 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-actions">
+                <button id="restart-energy-btn" class="secondary-btn">重新评估</button>
+                <button id="save-energy-report-btn" class="primary-btn">保存报告</button>
+                <button id="back-energy-btn" class="secondary-btn">返回主菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?version=2.0"></script>
+    
+    <!-- 星点粒子背景 -->
+    <div class="stars-container" id="stars-container"></div>
     
     <!-- 波浪效果 -->
     <div class="waves-container">
